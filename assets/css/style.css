@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Oswald", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+section {
+  position: relative;
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+:root {
+  --black: #191919;
+  --white: #fff;
+  --blue: #0000ff;
+  --red: #d0342c;
+  --green: #085a27;
+}
+
+/* header */
+header {
+  position: absolute;
+  width: 100%;
+  padding: 1rem 0;
+  flex-direction: row;
+  z-index: 1000;
+}
+
+/* logo */
+.logo img {
+  max-width: 260px;
+}
+
+/* navbar */
+.navbar {
+  position: relative;
+  height: 70px;
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--white);
+}
+
+/* nav menu */
+#nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex-grow: 1;
+  justify-content: flex-end;
+  margin-right: 80px;
+  padding: 0 20px;
+}
+
+.nav-item {
+  display: inline-block;
+  list-style-type: none;
+}
+
+.nav-link {
+  position: relative;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--black);
+  transition: color 0.3s;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  right: 0;
+  bottom: -3px;
+  width: 0;
+  background: var(--black);
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* menu icon */
+.menu-icon {
+  display: flex;
+  align-items: center;
+  display: none;
+}
+
+.menu-icon i {
+  color: #000;
+  font-size: 20px;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: flex;
+  }
+  #nav-menu {
+    position: absolute;
+    width: 100%;
+    top: 60px;
+    left: 0;
+    padding: 20px 0;
+    flex-direction: column;
+    align-items: center;
+    max-height: 0;
+    background: var(--black);
+    overflow: hidden;
+    transition: max-height 0.8s ease;
+    opacity: 0;
+  }
+  #nav-menu.show {
+    max-height: 300px;
+    opacity: 1;
+  }
+  .nav-link {
+    color: var(--white);
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background-color: var(--white);
+    transition: 0.3s ease-in-out;
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+}
+
+/* home image section */
+#home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-content {
+  width: 50%;
+  text-align: left;
+}
+/* button */
+.home-btn {
+  display: inline-block;
+  max-width: max-content;
+  padding: 0.3rem 1rem;
+  background-color: var(--green);
+  color: var(--white);
+  border-radius: 0.22rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.home-btn:hover {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.home-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.home-content p {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 0.8rem;
+}
+
+/* Responsive home section */
+@media (max-width: 1024px) {
+  #home {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .home-content {
+    width: 80%;
+    text-align: center; /* Center text */
+    margin-bottom: 2rem;
+  }
+  .home-img img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .home-content h1 {
+    font-size: 2.5rem;
+  }
+  .home-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-content {
+    margin-top: 4rem;
+  }
+  .home-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .home-content p {
+    font-size: 1rem;
+  }
+  .home-img {
+    width: 50%;
+    margin-top: -2rem;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-content {
+    width: 90%;
+    padding: 5rem 0;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .home-content h1 {
+    font-size: 2rem;
+  }
+
+  .home-img {
+    width: 70%;
+    margin-top: -6rem;
+    display: flex;
+    justify-content: center;
+  }
+}
