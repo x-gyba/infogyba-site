@@ -9,3 +9,23 @@ function toggleMenu() {
     menuList.classList.add("show");
   }
 }
+
+/* back to Top */
+const backToTopButton = document.getElementById("backtop");
+window.onscroll = function () {
+  if (
+    document.body.scrollTop > 100 ||
+    document.documentElement.scrollTop > 100
+  ) {
+    backToTopButton.style.display = "block";
+  } else {
+    backToTopButton.style.display = "none";
+  }
+};
+
+backToTopButton.addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
